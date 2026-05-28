@@ -143,7 +143,7 @@
         </nav>
 
         <div class="flex items-center gap-3">
-          <a href="./resume.pdf" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-sm text-white hover:bg-white/5 hover:border-white/20 transition">
+          <a href="./resume.pdf" download="Chinmay_Mulgund_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-sm text-white hover:bg-white/5 hover:border-white/20 transition">
             <i class="fa-solid fa-file-arrow-down text-accent"></i>
             Resume
           </a>
@@ -242,7 +242,7 @@
 
                 <div class="p-5 sm:p-6 space-y-5">
                   <div class="aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border border-white/8 bg-[#09111d] relative shadow-2xl">
-  <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover scale-[1.02]" style="object-position: 50% 14%;" />
+  <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover scale-[1.03]" style="object-position: 50% 10%;" />
   <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
   <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
     <div class="rounded-2xl border border-white/8 bg-black/35 backdrop-blur-sm px-4 py-3 flex items-end justify-between gap-3">
@@ -257,16 +257,6 @@
     </div>
   </div>
 </div>
-                    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
-                      <div>
-                        <div class="text-xs font-mono text-accent">ROLE</div>
-                        <div class="text-white font-semibold">Embedded Firmware Engineer</div>
-                      </div>
-                      <div class="text-right">
-                        <div class="text-xs font-mono text-muted">BUILD STYLE</div>
-                        <div class="text-white font-semibold">Robust / maintainable / field-ready</div>
-                      </div>
-                    </div>
                   </div>
 
                   <div class="grid grid-cols-2 gap-3 text-sm">
@@ -756,10 +746,14 @@
             <i class="fa-brands fa-github"></i>
             GitHub
           </a>
-          <a href="./resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
+          <a href="./resume.pdf" download="Chinmay_Mulgund_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
             <i class="fa-solid fa-file-lines"></i>
             Resume
           </a>
+
+          <p class="mt-3 text-xs text-muted font-mono">
+            Resume file name must be exactly <span class="text-white">resume.pdf</span> in the GitHub Pages root.
+          </p>
         </div>
       </div>
     </div>
@@ -817,7 +811,7 @@ help, about, experience, projects, kiosk, lev, ble, fundamentals, stack, contact
     stack: `C, C++, Embedded C, Python, MATLAB\nESP32, ESP32-S3, nRF52, CH32V003, Raspberry Pi\nBLE, ESP-NOW, MQTT, UART, SPI, I2C, Wi-Fi, TCP/IP\nESP-IDF, RTOS, KiCad, Segger Embedded Studio, JTAG/SWD`,
     contact: `email: chinmaymulgund3559@gmail.com\ngithub: github.com/Chinmay-Mulgund`,
     status: `status:\n- shell: online\n- output: ready\n- history: enabled\n- autocomplete: enabled`,
-    resume: `Open ./resume.pdf from the repo root.`,
+    resume: `Open ./resume.pdf from the repo root. If it 404s, the file is missing from the GitHub Pages root or the filename case does not match exactly.`,
     clear: '__CLEAR__'
   };
 
