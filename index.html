@@ -1,214 +1,790 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinmay Mulgund | Firmware Engineer</title>
-    <!-- Tailwind CSS for Modern UI -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter for text, Fira Code for technical terms -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
-                    colors: { terminal: '#10b981', darkbg: '#0f172a', cardbg: '#1e293b' }
-                }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chinmay Mulgund — Embedded Firmware Engineer specializing in EV systems, battery swapping infrastructure, BLE, edge AI, and real-time embedded architecture." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Chinmay Mulgund | Embedded Firmware Engineer" />
+  <meta property="og:description" content="Firmware, hardware, EV systems, battery swapping infrastructure, edge AI, BLE, and real-time embedded engineering." />
+  <meta property="og:type" content="website" />
+  <title>Chinmay Mulgund | Embedded Firmware Engineer</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace']
+          },
+          colors: {
+            bg: '#07101d',
+            panel: '#0d1728',
+            panel2: '#111c30',
+            borderc: '#21314d',
+            text: '#e8eef8',
+            muted: '#96a3ba',
+            accent: '#4ade80',
+            accent2: '#60a5fa',
+            amber: '#f59e0b'
+          },
+          boxShadow: {
+            soft: '0 18px 60px rgba(0,0,0,0.30)',
+            glow: '0 0 0 1px rgba(96,165,250,0.12), 0 18px 50px rgba(0,0,0,0.35)'
+          }
         }
-    </script>
-    <style>
-        body { background-color: #0f172a; color: #cbd5e1; }
-        .tech-tag { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
-        .nav-blur { backdrop-filter: blur(10px); background-color: rgba(15, 23, 42, 0.8); }
-        /* Simple typing cursor animation */
-        .cursor::after { content: '|'; animation: blink 1s step-start infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(74,222,128,0.10), transparent 24%),
+        linear-gradient(180deg, #07101d 0%, #07101d 100%);
+      color: #e8eef8;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(96,165,250,.25); color: #fff; }
+    .glass {
+      background: rgba(13,23,40,0.76);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+    }
+    .fine-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .soft-ring {
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .section-kicker {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      color: #96a3ba;
+    }
+    .chip {
+      border: 1px solid rgba(96,165,250,0.18);
+      background: rgba(96,165,250,0.08);
+      color: #bfd6ff;
+    }
+    .chip-green {
+      border: 1px solid rgba(74,222,128,0.18);
+      background: rgba(74,222,128,0.08);
+      color: #b7f7c7;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(17,28,48,0.95), rgba(13,23,40,0.95));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .navlink.active {
+      color: #ffffff;
+    }
+    .navlink.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #4ade80, #60a5fa);
+      border-radius: 999px;
+      margin-top: 6px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
 </head>
-<body class="antialiased font-sans selection:bg-terminal selection:text-darkbg">
+<body class="font-sans antialiased">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/6 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 grid place-items-center text-accent">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div>
+            <div class="text-sm font-mono text-white tracking-wide">Chinmay Mulgund</div>
+            <div class="text-[11px] text-muted">Embedded Firmware Engineer</div>
+          </div>
+        </a>
 
-    <!-- Sticky Navbar -->
-    <nav class="fixed w-full z-50 nav-blur border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <span class="text-xl font-mono text-white font-bold">&gt; CM_<span class="text-terminal">SYS</span></span>
-            <div class="space-x-6 text-sm font-mono hidden md:block">
-                <a href="#about" class="hover:text-terminal transition">/about</a>
-                <a href="#experience" class="hover:text-terminal transition">/experience</a>
-                <a href="#projects" class="hover:text-terminal transition">/projects</a>
-                <a href="#skills" class="hover:text-terminal transition">/skills</a>
-            </div>
-            <a href="mailto:chinmaymulgund3559@gmail.com" class="px-4 py-2 border border-terminal text-terminal rounded hover:bg-terminal hover:text-darkbg transition font-mono text-sm">
-                connect()
-            </a> <!--[cite: 2] -->
+        <nav class="hidden md:flex items-center gap-7 text-sm text-muted font-medium">
+          <a href="#about" class="navlink hover:text-white transition">About</a>
+          <a href="#experience" class="navlink hover:text-white transition">Experience</a>
+          <a href="#systems" class="navlink hover:text-white transition">Systems</a>
+          <a href="#projects" class="navlink hover:text-white transition">Projects</a>
+          <a href="#skills" class="navlink hover:text-white transition">Skills</a>
+          <a href="#contact" class="navlink hover:text-white transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="./resume.pdf" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-sm text-white hover:bg-white/5 hover:border-white/20 transition">
+            <i class="fa-solid fa-file-arrow-down text-accent"></i>
+            Resume
+          </a>
+          <a href="mailto:chinmaymulgund3559@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-bg font-semibold text-sm hover:opacity-90 transition">
+            <i class="fa-solid fa-paper-plane"></i>
+            Contact
+          </a>
+          <button id="menuBtn" class="md:hidden w-10 h-10 rounded-xl border border-white/10 bg-white/5 text-white">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-20 px-4">
-        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6" data-aos="fade-right">
-                <p class="text-terminal font-mono text-lg">uint8_t status = "Available";</p>
-                <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Chinmay Mulgund.</h1>
-                <h2 class="text-3xl md:text-4xl text-gray-400 font-semibold cursor">I engineer firmware for the physical world</h2>
-                <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
-                    Embedded Firmware Engineer bridging the gap between bare-metal hardware and the cloud. Specializing in IoT architectures, Light Electric Vehicle (LEV) systems, and real-time edge AI processing. <!--[cite: 2] -->
-                </p>
-                <div class="flex space-x-4 pt-4">
-                    <a href="https://github.com/Chinmay-Mulgund" target="_blank" class="text-2xl hover:text-terminal transition"><i class="fab fa-github"></i></a> <!--[cite: 2] -->
-                    <a href="#" target="_blank" class="text-2xl hover:text-terminal transition"><i class="fab fa-linkedin"></i></a> <!-- Replace # with actual LinkedIn URL -->
-                    <a href="mailto:chinmaymulgund3559@gmail.com" class="text-2xl hover:text-terminal transition"><i class="fas fa-envelope"></i></a> <!--[cite: 2] -->
-                </div>
-            </div>
-            <!-- Photo Profile -->
-            <div class="flex-1 flex justify-center" data-aos="fade-left">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cardbg overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.2)]">
-                    <!-- Replace the src below with your image URL -->
-                    <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover">
-                </div>
-            </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="grid gap-2 text-sm text-muted">
+          <a href="#about" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">About</a>
+          <a href="#experience" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">Experience</a>
+          <a href="#systems" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">Systems</a>
+          <a href="#projects" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">Projects</a>
+          <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">Skills</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-white/5 hover:text-white transition">Contact</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-4 bg-cardbg/30">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">01.</span> Experience</h2>
-            
-            <div class="space-y-12">
-                <!-- Job 1 -->
-                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
-                    <div class="absolute w-4 h-4 bg-terminal rounded-full -left-[9px] top-1"></div>
-                    <h3 class="text-xl font-bold text-white">Embedded Firmware Engineer <span class="text-terminal">@ Dimension Six Technologies</span></h3> <!--[cite: 2] -->
-                    <p class="text-sm font-mono text-gray-500 mb-4">Jun 2025 - Present | Mumbai</p> <!--[cite: 2] -->
-                    <ul class="list-disc list-inside space-y-2 text-gray-400">
-                        <li>Designed firmware and PCB layouts for HOOK UNIQ, an e-bike conversion system utilizing ESP-NOW for wireless throttle and drivetrain switching.</li> <!--[cite: 2] -->
-                        <li>Developed HOOK DAILY for gig workers, integrating VESC with throttle-based control.</li> <!--[cite: 2] -->
-                        <li>Architected a 16-compartment (8x2) smart battery charging & swap kiosk with custom docking hardware, secure device handoff, and an Elecrow 7" HMI master display integrating robust battery detection routines.</li> <!--[cite: 2] -->
-                        <li>Implemented cadence-sensing firmware on ISC-nRF52832-A with a BMA400 accelerometer for real-time pedal RPM computation.</li> <!--[cite: 2] -->
-                    </ul>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
-                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-1"></div>
-                    <h3 class="text-xl font-bold text-white">Firmware Engineer Intern <span class="text-terminal">@ DeepGrid Semi</span></h3> <!--[cite: 2] -->
-                    <p class="text-sm font-mono text-gray-500 mb-4">Sep 2024 - Jun 2025 | Hyderabad</p> <!--[cite: 2] -->
-                    <ul class="list-disc list-inside space-y-2 text-gray-400">
-                        <li>Integrated ADAS L0 system (object/lane detection) for edge deployment on Raspberry Pi using the Hailos Accelerator.</li> <!--[cite: 2] -->
-                        <li>Controlled a prototype car's front axle via ESP32 socket communication to CARLA simulation.</li> <!--[cite: 2] -->
-                        <li>Deployed BitNetMCU on CH32V003 and ESP32-S3 for MNIST data prediction.</li> <!--[cite: 2] -->
-                    </ul>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
-                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-1"></div>
-                    <h3 class="text-xl font-bold text-white">Electronics & Programming Engineer <span class="text-terminal">@ Shaurya Racing</span></h3> <!--[cite: 2] -->
-                    <p class="text-sm font-mono text-gray-500 mb-4">Oct 2022 - Jan 2025 | VIT Chennai</p> <!--[cite: 2] -->
-                    <ul class="list-disc list-inside space-y-2 text-gray-400">
-                        <li>Delivered a Gear Position Indicator and Driver Information Display, improving driver awareness during Formula Bharat 2024.</li> <!--[cite: 2] -->
-                        <li>Reduced telemetry data latency by 15% using MQTT protocols.</li> <!--[cite: 2] -->
-                    </ul>
-                </div>
+  <main id="home" class="pt-28">
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 fine-grid opacity-30"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 text-xs text-muted mb-6">
+              <span class="w-2 h-2 rounded-full bg-accent"></span>
+              Embedded systems · EV electronics · edge AI · connected devices
             </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">02.</span> Hardware & Architecture</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-cardbg p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-terminal group" data-aos="zoom-in">
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fas fa-microchip text-3xl text-terminal"></i>
-                        <a href="#" class="text-gray-400 group-hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Cellular IoT Asset Tracker</h3> <!--[cite: 2] -->
-                    <p class="text-gray-400 mb-6 text-sm">Engineered a robust real-time tracking architecture using an ESP32 and SIM A7672S 4G LTE/GNSS board for autonomous telemetry parsing over cellular networks.</p> <!--[cite: 2] -->
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="tech-tag px-3 py-1 rounded">ESP32</span>
-                        <span class="tech-tag px-3 py-1 rounded">A7672S 4G LTE</span>
-                        <span class="tech-tag px-3 py-1 rounded">C/C++</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-cardbg p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-terminal group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fas fa-bicycle text-3xl text-terminal"></i>
-                        <a href="#" class="text-gray-400 group-hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">AI Bicycle Rear-Collision Alert</h3> <!--[cite: 2] -->
-                    <p class="text-gray-400 mb-6 text-sm">Computer vision warning system for cyclists. Utilized Raspberry Pi and Google Coral Accelerator for real-time edge AI vehicle detection and hazard notification.</p> <!--[cite: 2] -->
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="tech-tag px-3 py-1 rounded">Raspberry Pi</span>
-                        <span class="tech-tag px-3 py-1 rounded">Google Coral</span>
-                        <span class="tech-tag px-3 py-1 rounded">OpenCV</span>
-                        <span class="tech-tag px-3 py-1 rounded">Python</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="skills" class="py-20 px-4 bg-cardbg/30">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">03.</span> Tech Stack</h2>
-            
-            <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
-                <!-- Languages & Core -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">C / Embedded C (Mastering)</span>
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">C++</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">Python</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">MATLAB</span> <!--[cite: 2] -->
-                
-                <!-- Microcontrollers -->
-                <span class="px-4 py-2 tech-tag font-mono text-sm">ESP32 / ESP32-S3</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 tech-tag font-mono text-sm">nRF52 Series</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 tech-tag font-mono text-sm">CH32V003</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 tech-tag font-mono text-sm">ARM Architecture</span>
-                <span class="px-4 py-2 tech-tag font-mono text-sm">Raspberry Pi</span> <!--[cite: 2] -->
-                
-                <!-- Frameworks & Protocols -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">RTOS</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">ESP-IDF</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">ESP-NOW</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">MQTT / TCP/IP</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">I2C / SPI / UART</span> <!--[cite: 2] -->
-                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">KiCad</span> <!--[cite: 2] -->
-            </div>
-            
-            <!-- Education Note -->
-            <p class="mt-12 text-gray-500 font-mono text-sm" data-aos="fade-up">
-                <i class="fas fa-graduation-cap mr-2"></i> B.Tech Electronics and Communication Engineering | Vellore Institute of Technology, Chennai (2021-2025) <!--[cite: 2] -->
+            <p class="font-mono text-accent text-sm mb-4">specialization = real-time embedded products</p>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+              Embedded firmware for intelligent mobility and field-ready systems.
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">
+              I build systems where reliability matters: EV conversion platforms, battery swapping kiosks, BLE and wireless control, edge AI devices, sensor nodes, and production-oriented embedded architecture.
             </p>
+
+            <div class="mt-8 flex flex-wrap gap-3 text-sm font-mono">
+              <span class="chip-green px-4 py-2 rounded-full">Firmware ownership</span>
+              <span class="chip-green px-4 py-2 rounded-full">Embedded architecture</span>
+              <span class="chip-green px-4 py-2 rounded-full">Power optimization</span>
+              <span class="chip-green px-4 py-2 rounded-full">DMA / interrupts</span>
+              <span class="chip-green px-4 py-2 rounded-full">BLE stack internals</span>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-bg font-semibold hover:opacity-90 transition">
+                View systems
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/7 hover:border-white/20 transition">
+                Work with me
+              </a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="card rounded-2xl p-4 soft-ring">
+                <div class="text-xs text-muted">Focus</div>
+                <div class="text-white font-semibold mt-1">Embedded products</div>
+              </div>
+              <div class="card rounded-2xl p-4 soft-ring">
+                <div class="text-xs text-muted">Strength</div>
+                <div class="text-white font-semibold mt-1">Low-level systems</div>
+              </div>
+              <div class="card rounded-2xl p-4 soft-ring">
+                <div class="text-xs text-muted">Domains</div>
+                <div class="text-white font-semibold mt-1">EV · IoT · AI</div>
+              </div>
+              <div class="card rounded-2xl p-4 soft-ring">
+                <div class="text-xs text-muted">Delivery</div>
+                <div class="text-white font-semibold mt-1">Prototype to deployment</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 reveal">
+            <div class="rounded-3xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-white/10 shadow-soft">
+              <div class="rounded-3xl overflow-hidden bg-panel border border-white/8">
+                <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-xs text-muted font-mono">
+                    <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                    <span>engineering_console</span>
+                  </div>
+                  <div class="text-xs text-muted font-mono">overview</div>
+                </div>
+
+                <div class="p-5 sm:p-6 space-y-5">
+                  <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/8 bg-[#09111d] relative">
+                    <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover object-center" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+                      <div>
+                        <div class="text-xs font-mono text-accent">ROLE</div>
+                        <div class="text-white font-semibold">Embedded Firmware Engineer</div>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-xs font-mono text-muted">BUILD STYLE</div>
+                        <div class="text-white font-semibold">Robust / maintainable / field-ready</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3 text-sm">
+                    <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+                      <div class="text-xs text-muted">Specialization</div>
+                      <div class="text-white font-semibold mt-1">Embedded systems with deployment ownership</div>
+                    </div>
+                    <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+                      <div class="text-xs text-muted">Core depth</div>
+                      <div class="text-white font-semibold mt-1">BLE, interrupts, DMA, power</div>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl border border-white/8 bg-[#09111d] p-4 font-mono text-xs sm:text-sm text-muted">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-white">telemetry.log</span>
+                      <span class="text-accent">LIVE</span>
+                    </div>
+                    <div id="typewriter" class="space-y-2 leading-6"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center border-t border-gray-800">
-        <p class="text-gray-500 font-mono text-sm">Built by Chinmay Mulgund &copy; 2026. Designed for the physical world.</p>
-    </footer>
+    <section id="about" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-4 reveal">
+            <div class="section-kicker mb-3">About</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Strong on fundamentals, focused on systems that must run reliably.</h2>
+          </div>
+          <div class="lg:col-span-8 reveal">
+            <div class="glass rounded-3xl p-6 sm:p-8 shadow-soft">
+              <p class="text-muted leading-8 text-base sm:text-lg">
+                My work sits at the intersection of firmware, hardware, and product deployment. I’ve worked across EV conversion platforms, a battery swapping kiosk, edge AI systems, radar sensing, wireless control, telemetry, and embedded connectivity. I prefer problems that require architecture ownership, careful trade-offs, and a strong understanding of low-level behavior.
+              </p>
+              <div class="mt-6 grid sm:grid-cols-3 gap-4">
+                <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+                  <div class="text-xs text-muted font-mono">Approach</div>
+                  <div class="text-white font-semibold mt-1">System-first engineering</div>
+                </div>
+                <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+                  <div class="text-xs text-muted font-mono">Style</div>
+                  <div class="text-white font-semibold mt-1">Concise, stable, maintainable</div>
+                </div>
+                <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+                  <div class="text-xs text-muted font-mono">Depth</div>
+                  <div class="text-white font-semibold mt-1">From interrupts to deployment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Initialize AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
+    <section id="experience" class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-6 mb-10">
+          <div class="reveal">
+            <div class="section-kicker mb-3">Experience</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">Engineering ownership</h2>
+          </div>
+          <div class="hidden md:block text-sm text-muted font-mono reveal">Firmware · hardware integration · product support</div>
+        </div>
+
+        <div class="space-y-6">
+          <article class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 flex-wrap">
+                  <h3 class="text-2xl font-bold text-white">Embedded Firmware Engineer</h3>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-accent/10 text-accent border border-accent/20">Dimension Six Technologies</span>
+                </div>
+                <p class="mt-2 text-muted">Mumbai · Jun 2025 – Present</p>
+              </div>
+              <div class="text-sm text-muted font-mono">EV systems · kiosk systems · wireless control</div>
+            </div>
+            <div class="mt-6 grid lg:grid-cols-2 gap-4 text-muted leading-7">
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">End-to-end product ownership</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Designed firmware and PCB layouts for HOOK UNIQ, a U-shaped motor-mount attachment that converts a bicycle into an e-bike using ESP-NOW wireless control.</li>
+                  <li>Built HOOK DAILY, an affordable front-wheel e-conversion solution for delivery personnel with Vedder Smart ESC (VESC) throttle-based control.</li>
+                  <li>Architected a 7x2 battery charging and swap kiosk with 14 compartments, including docking hardware, secure device handoff, backend integration, online payment support, and serviceable maintenance workflows.</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Competitive depth</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Implemented cadence-sensing firmware on ISC-nRF52832-A with a BMA400 accelerometer to compute pedal RPM and speed.</li>
+                  <li>Worked across BLE stack internals, power optimization, embedded architecture ownership, and DMA / interrupt-heavy integration work.</li>
+                  <li>Focused on reliability, state handling, low-power behavior, and long-term maintainability in field conditions.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 flex-wrap">
+                  <h3 class="text-2xl font-bold text-white">Firmware Engineer Intern</h3>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-accent2/10 text-accent2 border border-accent2/20">DeepGrid Semi</span>
+                </div>
+                <p class="mt-2 text-muted">Hyderabad · Sep 2024 – Jun 2025</p>
+              </div>
+              <div class="text-sm text-muted font-mono">ADAS · edge AI · simulation · radar sensing</div>
+            </div>
+            <div class="mt-6 grid lg:grid-cols-2 gap-4 text-muted leading-7">
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Edge systems</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Integrated DeepGrid ADAS L0 system with object and lane detection for edge deployment on Raspberry Pi using Hailo8 accelerator.</li>
+                  <li>Controlled a prototype car front axle using ESP32 socket communication to CARLA simulation with servo-based actuation.</li>
+                  <li>Deployed BitNetMCU on CH32V003 and ESP32-S3 for MNIST prediction, targeting applications such as number plate recognition.</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Low-level embedded work</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Programmed an nRF52 development board to measure distance using a custom PCB with Acconeer A121 Pulsed Coherent Radar Sensor.</li>
+                  <li>Used Segger Embedded Studio for embedded development, validation, and hardware bring-up.</li>
+                  <li>Worked on interrupt-driven integration and timing-sensitive embedded flows where latency and determinism mattered.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 flex-wrap">
+                  <h3 class="text-2xl font-bold text-white">Embedded Intern</h3>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-amber/10 text-amber border border-amber/20">Paras Telecom</span>
+                </div>
+                <p class="mt-2 text-muted">Pune · Aug 2023 – Nov 2023</p>
+              </div>
+              <div class="text-sm text-muted font-mono">Wi-Fi provisioning · web server · access control</div>
+            </div>
+            <div class="mt-6 grid lg:grid-cols-2 gap-4 text-muted leading-7">
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Connectivity</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Engineered and optimized ESP32 firmware for flexible Wi-Fi setup using a web server with AP and Station modes.</li>
+                  <li>Integrated mDNS for seamless device discovery and improved provisioning experience.</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Applied systems</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Led a Python-based face recognition access system with more than 95% accuracy for secure access control for 100+ users.</li>
+                  <li>Worked across hardware constraints, usability, and stable deployment behavior.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 flex-wrap">
+                  <h3 class="text-2xl font-bold text-white">Electronics & Programming Engineer</h3>
+                  <span class="px-3 py-1 rounded-full text-xs font-mono bg-white/8 text-white border border-white/10">Shaurya Racing</span>
+                </div>
+                <p class="mt-2 text-muted">VIT Chennai · Oct 2022 – Jan 2025</p>
+              </div>
+              <div class="text-sm text-muted font-mono">Formula Bharat · telemetry · driver systems</div>
+            </div>
+            <div class="mt-6 grid lg:grid-cols-2 gap-4 text-muted leading-7">
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Vehicle electronics</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Contributed to achieving 7th overall and 5th in statics at Formula Bharat 2024 among 25+ teams.</li>
+                  <li>Delivered a gear position indicator that improved driver awareness and live race usability.</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-white/8 bg-white/3 p-5">
+                <div class="text-white font-semibold mb-2">Telemetry</div>
+                <ul class="space-y-3 list-disc list-inside">
+                  <li>Reduced telemetry data latency by 15% using MQTT-based communication.</li>
+                  <li>Built a driver information display to improve real-time data visibility during events.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <div class="section-kicker mb-3">Systems</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Flagship architectures</h2>
+          <p class="text-muted mt-3 max-w-3xl">These are the systems that best represent my work: end-to-end, maintainable, and built with hardware in mind.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex items-center justify-between gap-4 mb-5">
+              <div>
+                <h3 class="text-2xl font-bold text-white">Battery Swapping & Charging Kiosk</h3>
+                <p class="text-muted mt-1">7x2 layout with 14 compartments, designed for maintainability and real operations</p>
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-accent/10 grid place-items-center border border-accent/20 text-accent">
+                <i class="fa-solid fa-battery-three-quarters"></i>
+              </div>
+            </div>
+            <div class="space-y-3 font-mono text-sm">
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Mechanical docking + secure battery recognition</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Firmware logic + safety checks + device handoff</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Backend integration + slot status tracking</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Online payment support + user workflow</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Maintenance pipeline + serviceability + operational reliability</div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6 sm:p-8 reveal">
+            <div class="flex items-center justify-between gap-4 mb-5">
+              <div>
+                <h3 class="text-2xl font-bold text-white">LEV / E-bike Conversion Stack</h3>
+                <p class="text-muted mt-1">Wireless control, throttle mapping, cadence sensing, and power-aware behavior</p>
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-accent2/10 grid place-items-center border border-accent2/20 text-accent2">
+                <i class="fa-solid fa-bicycle"></i>
+              </div>
+            </div>
+            <div class="space-y-3 font-mono text-sm">
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK UNIQ → ESP-NOW wireless throttle and drive-mode switching</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK DAILY → VESC integration with throttle-based control</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Cadence sensing → nRF52832-A + BMA400 for pedal RPM and speed</div>
+              <div class="rounded-xl border border-white/8 bg-white/3 p-3">System goal → robust, rider-friendly, field-ready operation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <div class="section-kicker mb-3">Projects</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Selected builds</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <article class="glass rounded-3xl p-6 sm:p-7 reveal">
+            <div class="flex items-center justify-between mb-5">
+              <i class="fa-solid fa-satellite-dish text-2xl text-accent"></i>
+              <span class="text-xs font-mono text-muted">Connected mobility</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Cellular IoT GPS Asset Tracker</h3>
+            <p class="mt-4 text-muted leading-7">Built a real-time tracking architecture using ESP32 and A7672S 4G LTE + GNSS for autonomous telemetry parsing and transmission over cellular networks.</p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+              <span class="chip px-3 py-1.5 rounded-full">ESP32</span>
+              <span class="chip px-3 py-1.5 rounded-full">A7672S</span>
+              <span class="chip px-3 py-1.5 rounded-full">LTE / GNSS</span>
+              <span class="chip px-3 py-1.5 rounded-full">C/C++</span>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 sm:p-7 reveal">
+            <div class="flex items-center justify-between mb-5">
+              <i class="fa-solid fa-car-side text-2xl text-accent2"></i>
+              <span class="text-xs font-mono text-muted">Edge AI safety</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">AI Bicycle Rear-Collision Alert</h3>
+            <p class="mt-4 text-muted leading-7">Computer vision warning system for cyclists using Raspberry Pi and edge acceleration for vehicle detection and hazard notification.</p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+              <span class="chip px-3 py-1.5 rounded-full">Raspberry Pi</span>
+              <span class="chip px-3 py-1.5 rounded-full">Google Coral</span>
+              <span class="chip px-3 py-1.5 rounded-full">OpenCV</span>
+              <span class="chip px-3 py-1.5 rounded-full">Python</span>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 sm:p-7 reveal">
+            <div class="flex items-center justify-between mb-5">
+              <i class="fa-solid fa-wave-square text-2xl text-amber"></i>
+              <span class="text-xs font-mono text-muted">Radar / sensing</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Radar Distance Sensing Node</h3>
+            <p class="mt-4 text-muted leading-7">Built an nRF52-based sensing node with a custom PCB using Acconeer A121 Pulsed Coherent Radar Sensor for distance measurement and embedded integration.</p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+              <span class="chip px-3 py-1.5 rounded-full">nRF52</span>
+              <span class="chip px-3 py-1.5 rounded-full">Acconeer A121</span>
+              <span class="chip px-3 py-1.5 rounded-full">PCB</span>
+              <span class="chip px-3 py-1.5 rounded-full">Segger</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <div class="section-kicker mb-3">Skills</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Technology stack</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="glass rounded-3xl p-6 reveal">
+            <h3 class="text-lg font-semibold text-white">Languages</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="chip px-3 py-1.5 rounded-full">C</span>
+              <span class="chip px-3 py-1.5 rounded-full">C++</span>
+              <span class="chip px-3 py-1.5 rounded-full">Embedded C</span>
+              <span class="chip px-3 py-1.5 rounded-full">Python</span>
+              <span class="chip px-3 py-1.5 rounded-full">MATLAB</span>
+            </div>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <h3 class="text-lg font-semibold text-white">Platforms</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="chip px-3 py-1.5 rounded-full">ESP32</span>
+              <span class="chip px-3 py-1.5 rounded-full">ESP32-S3</span>
+              <span class="chip px-3 py-1.5 rounded-full">nRF52</span>
+              <span class="chip px-3 py-1.5 rounded-full">CH32V003</span>
+              <span class="chip px-3 py-1.5 rounded-full">Raspberry Pi</span>
+              <span class="chip px-3 py-1.5 rounded-full">Arduino</span>
+            </div>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <h3 class="text-lg font-semibold text-white">Protocols</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="chip px-3 py-1.5 rounded-full">BLE</span>
+              <span class="chip px-3 py-1.5 rounded-full">ESP-NOW</span>
+              <span class="chip px-3 py-1.5 rounded-full">MQTT</span>
+              <span class="chip px-3 py-1.5 rounded-full">UART</span>
+              <span class="chip px-3 py-1.5 rounded-full">SPI</span>
+              <span class="chip px-3 py-1.5 rounded-full">I2C</span>
+              <span class="chip px-3 py-1.5 rounded-full">Wi-Fi</span>
+              <span class="chip px-3 py-1.5 rounded-full">TCP/IP</span>
+            </div>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <h3 class="text-lg font-semibold text-white">Tools</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="chip px-3 py-1.5 rounded-full">ESP-IDF</span>
+              <span class="chip px-3 py-1.5 rounded-full">RTOS</span>
+              <span class="chip px-3 py-1.5 rounded-full">KiCad</span>
+              <span class="chip px-3 py-1.5 rounded-full">Segger Embedded Studio</span>
+              <span class="chip px-3 py-1.5 rounded-full">JTAG / SWD</span>
+              <span class="chip px-3 py-1.5 rounded-full">Logic Analyzer</span>
+              <span class="chip px-3 py-1.5 rounded-full">Oscilloscope</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 glass rounded-3xl p-6 reveal">
+          <div class="grid md:grid-cols-2 gap-4 text-muted leading-7">
+            <div>
+              <h3 class="text-white font-semibold mb-3">Fundamentals presentation</h3>
+              <p>Strong on state machines, timing-sensitive flows, peripheral integration, power-aware design, interrupt handling, DMA paths, low-power modes, and debugging at the hardware / firmware boundary.</p>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold mb-3">Specialization clarity</h3>
+              <p>Embedded firmware for mobility and connected hardware: LEV systems, battery infrastructure, BLE-based device control, edge AI, telemetry, and field-ready electronic systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <div class="section-kicker mb-3">Terminal</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Interactive console</h2>
+        </div>
+
+        <div class="terminal rounded-3xl overflow-hidden reveal">
+          <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between text-sm">
+            <div class="flex items-center gap-2 text-muted font-mono">
+              <span class="w-3 h-3 rounded-full bg-red-400"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400"></span>
+              <span>embedded_shell</span>
+            </div>
+            <div class="text-xs text-muted font-mono">type help</div>
+          </div>
+
+          <div class="p-5 sm:p-7 space-y-5">
+            <div id="terminal-output" class="space-y-2 text-sm sm:text-base font-mono leading-7 text-[#d7e0f2]"></div>
+
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="help">help</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="experience">experience</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="projects">projects</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="kiosk">kiosk</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="skills">skills</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="contact">contact</button>
+              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="clear">clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass rounded-3xl p-8 sm:p-10 reveal">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8">
+              <div class="section-kicker mb-3">Contact</div>
+              <h2 class="text-3xl sm:text-4xl font-bold text-white">Open to embedded firmware and systems roles.</h2>
+              <p class="mt-4 text-muted max-w-2xl leading-8">For firmware, EV systems, edge AI, IoT, BLE, or hardware product roles, reach out directly. I am especially interested in work involving real devices, real constraints, and measurable reliability.</p>
+            </div>
+            <div class="lg:col-span-4 flex lg:justify-end gap-3 flex-wrap">
+              <a href="mailto:chinmaymulgund3559@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-bg font-semibold hover:opacity-90 transition">
+                <i class="fa-solid fa-envelope"></i>
+                Email me
+              </a>
+              <a href="https://github.com/Chinmay-Mulgund" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+              </a>
+              <a href="./resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
+                <i class="fa-solid fa-file-lines"></i>
+                Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-muted">
+      <p>Built by Chinmay Mulgund · 2026</p>
+      <p class="font-mono">Firmware, hardware, telemetry, deployment.</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+
+    const mobileMenu = document.getElementById('mobileMenu');
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    const lines = [
+      '[OK] firmware stack initialized',
+      '[OK] embedded targets online',
+      '[OK] power-aware control paths ready',
+      '[OK] telemetry and connectivity modules active',
+      '[OK] field deployment support enabled'
+    ];
+    const typewriter = document.getElementById('typewriter');
+    let idx = 0;
+    function render() {
+      typewriter.innerHTML = '';
+      lines.forEach((line, i) => {
+        const div = document.createElement('div');
+        div.textContent = line;
+        div.className = i === idx ? 'text-accent' : 'text-muted';
+        typewriter.appendChild(div);
+      });
+      idx = (idx + 1) % lines.length;
+    }
+    render();
+    setInterval(render, 1800);
+
+    const terminalOutput = document.getElementById('terminal-output');
+    const commands = {
+      help: 'available commands: help, experience, projects, kiosk, skills, contact, clear',
+      experience: 'Dimension Six Technologies | DeepGrid Semi | Paras Telecom | Shaurya Racing',
+      projects: 'Cellular IoT GPS Asset Tracker | AI Bicycle Rear-Collision Alert | Radar Distance Sensing Node',
+      kiosk: '7x2 battery swapping kiosk | 14 compartments | secure handoff | backend integration | payment support | maintenance pipeline',
+      skills: 'BLE | ESP-NOW | MQTT | RTOS | ESP-IDF | KiCad | JTAG/SWD | DMA | interrupts | power optimization',
+      contact: 'email: chinmaymulgund3559@gmail.com\ngithub: github.com/Chinmay-Mulgund',
+      clear: '__CLEAR__'
+    };
+
+    function printTerminal(text) {
+      const block = document.createElement('div');
+      block.className = 'whitespace-pre-wrap';
+      block.innerHTML = `<span class="text-accent">visitor@chinmay</span><span class="text-muted">:~$</span> ${text.replace(/\n/g, '<br>')}`;
+      terminalOutput.appendChild(block);
+    }
+
+    function runCommand(cmd) {
+      if (cmd === 'clear') {
+        terminalOutput.innerHTML = '';
+        return;
+      }
+      const out = commands[cmd] || 'command not found. type help.';
+      if (out === '__CLEAR__') {
+        terminalOutput.innerHTML = '';
+        return;
+      }
+      printTerminal(out);
+    }
+
+    document.querySelectorAll('[data-command]').forEach(btn => {
+      btn.addEventListener('click', () => runCommand(btn.dataset.command));
+    });
+
+    printTerminal('help');
+
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = [...document.querySelectorAll('.navlink')];
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
         });
-    </script>
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.05 });
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+  </script>
 </body>
 </html>
