@@ -241,9 +241,22 @@
                 </div>
 
                 <div class="p-5 sm:p-6 space-y-5">
-                  <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/8 bg-[#09111d] relative">
-                    <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover object-center" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
+                  <div class="aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border border-white/8 bg-[#09111d] relative shadow-2xl">
+  <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover scale-[1.02]" style="object-position: 50% 14%;" />
+  <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
+  <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+    <div class="rounded-2xl border border-white/8 bg-black/35 backdrop-blur-sm px-4 py-3 flex items-end justify-between gap-3">
+      <div>
+        <div class="text-xs font-mono text-accent tracking-[0.2em] uppercase">Role</div>
+        <div class="text-white font-semibold">Embedded Firmware Engineer</div>
+      </div>
+      <div class="text-right">
+        <div class="text-xs font-mono text-muted tracking-[0.2em] uppercase">Focus</div>
+        <div class="text-white text-sm font-semibold">EV · BLE · Real-time systems</div>
+      </div>
+    </div>
+  </div>
+</div>
                     <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                       <div>
                         <div class="text-xs font-mono text-accent">ROLE</div>
@@ -448,56 +461,73 @@
       </div>
     </section>
 
-    <section id="systems" class="py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="reveal mb-10">
-          <div class="section-kicker mb-3">Systems</div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white">Flagship architectures</h2>
-          <p class="text-muted mt-3 max-w-3xl">These are the systems that best represent my work: end-to-end, maintainable, and built with hardware in mind.</p>
+    
+<section id="systems" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10">
+      <div class="section-kicker mb-3">Systems</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white">Flagship architectures</h2>
+      <p class="text-muted mt-3 max-w-3xl">These are the systems that best represent my work: end-to-end, maintainable, and built with hardware in mind.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div class="glass rounded-3xl p-6 sm:p-8 reveal">
+        <div class="flex items-center justify-between gap-4 mb-5">
+          <div>
+            <h3 class="text-2xl font-bold text-white">Battery Swapping & Charging Kiosk</h3>
+            <p class="text-muted mt-1">7x2 layout with 14 compartments, designed for maintainability and real operations</p>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-accent/10 grid place-items-center border border-accent/20 text-accent">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+          </div>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-6">
-          <div class="glass rounded-3xl p-6 sm:p-8 reveal">
-            <div class="flex items-center justify-between gap-4 mb-5">
-              <div>
-                <h3 class="text-2xl font-bold text-white">Battery Swapping & Charging Kiosk</h3>
-                <p class="text-muted mt-1">7x2 layout with 14 compartments, designed for maintainability and real operations</p>
-              </div>
-              <div class="w-12 h-12 rounded-2xl bg-accent/10 grid place-items-center border border-accent/20 text-accent">
-                <i class="fa-solid fa-battery-three-quarters"></i>
-              </div>
-            </div>
-            <div class="space-y-3 font-mono text-sm">
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Mechanical docking + secure battery recognition</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Firmware logic + safety checks + device handoff</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Backend integration + slot status tracking</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Online payment support + user workflow</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Maintenance pipeline + serviceability + operational reliability</div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-6 sm:p-8 reveal">
-            <div class="flex items-center justify-between gap-4 mb-5">
-              <div>
-                <h3 class="text-2xl font-bold text-white">LEV / E-bike Conversion Stack</h3>
-                <p class="text-muted mt-1">Wireless control, throttle mapping, cadence sensing, and power-aware behavior</p>
-              </div>
-              <div class="w-12 h-12 rounded-2xl bg-accent2/10 grid place-items-center border border-accent2/20 text-accent2">
-                <i class="fa-solid fa-bicycle"></i>
-              </div>
-            </div>
-            <div class="space-y-3 font-mono text-sm">
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK UNIQ → ESP-NOW wireless throttle and drive-mode switching</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK DAILY → VESC integration with throttle-based control</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">Cadence sensing → nRF52832-A + BMA400 for pedal RPM and speed</div>
-              <div class="rounded-xl border border-white/8 bg-white/3 p-3">System goal → robust, rider-friendly, field-ready operation</div>
-            </div>
+        <div class="space-y-4 text-muted leading-7">
+          <p>
+            I built the kiosk as an end-to-end system, not just as a hardware prototype: docking hardware, secure battery handoff, embedded control, backend integration, payment flow support, and a maintenance-friendly operational pipeline.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 font-mono text-sm">
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">Mechanical docking + secure battery recognition</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">Firmware logic + safety checks + device handoff</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">Backend integration + slot status tracking</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">Online payment support + user workflow</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3 sm:col-span-2">Maintenance pipeline + serviceability + operational reliability</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="projects" class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
+      <div class="glass rounded-3xl p-6 sm:p-8 reveal">
+        <div class="flex items-center justify-between gap-4 mb-5">
+          <div>
+            <h3 class="text-2xl font-bold text-white">LEV / E-bike Conversion Stack</h3>
+            <p class="text-muted mt-1">Wireless control, throttle mapping, cadence sensing, and power-aware behavior</p>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-accent2/10 grid place-items-center border border-accent2/20 text-accent2">
+            <i class="fa-solid fa-bicycle"></i>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-muted leading-7">
+          <p>
+            HOOK is a bicycle conversion kit that turns a regular bicycle into an electric bicycle in seconds. The motor sits on the tire and uses friction drive, so the platform is fast to install, easy to remove, and practical for field use.
+          </p>
+          <p>
+            HOOK DAILY uses wired throttle control for a simple and reliable riding experience. HOOK UNIQ uses a wireless throttle via ESP-NOW, which expands the platform into more advanced use cases such as physiotherapy-style resistance control, gamified riding, and smart-trainer workflows with Zwift- or Blync-style compatibility.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-3 font-mono text-sm">
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK DAILY → VESC integration with wired throttle control</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">HOOK UNIQ → ESP-NOW wireless throttle and drive-mode switching</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">Cadence sensing → nRF52832-A + BMA400 for pedal RPM and speed</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3">System goal → robust, rider-friendly, field-ready operation</div>
+            <div class="rounded-xl border border-white/8 bg-white/3 p-3 sm:col-span-2">Design direction → mobility platform, resistance control, smart training, and real-world usability</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projects" class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="reveal mb-10">
           <div class="section-kicker mb-3">Projects</div>
@@ -553,238 +583,345 @@
       </div>
     </section>
 
-    <section id="skills" class="py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="reveal mb-10">
-          <div class="section-kicker mb-3">Skills</div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white">Technology stack</h2>
-        </div>
+    
+<section id="skills" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10">
+      <div class="section-kicker mb-3">Skills</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white">Technology stack</h2>
+      <p class="text-muted mt-3 max-w-3xl">A concise view of the stack I work with, with stronger emphasis on embedded fundamentals, ownership, and the domains I specialize in.</p>
+    </div>
 
-        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div class="glass rounded-3xl p-6 reveal">
-            <h3 class="text-lg font-semibold text-white">Languages</h3>
-            <div class="mt-4 flex flex-wrap gap-2 text-sm">
-              <span class="chip px-3 py-1.5 rounded-full">C</span>
-              <span class="chip px-3 py-1.5 rounded-full">C++</span>
-              <span class="chip px-3 py-1.5 rounded-full">Embedded C</span>
-              <span class="chip px-3 py-1.5 rounded-full">Python</span>
-              <span class="chip px-3 py-1.5 rounded-full">MATLAB</span>
-            </div>
-          </div>
-          <div class="glass rounded-3xl p-6 reveal">
-            <h3 class="text-lg font-semibold text-white">Platforms</h3>
-            <div class="mt-4 flex flex-wrap gap-2 text-sm">
-              <span class="chip px-3 py-1.5 rounded-full">ESP32</span>
-              <span class="chip px-3 py-1.5 rounded-full">ESP32-S3</span>
-              <span class="chip px-3 py-1.5 rounded-full">nRF52</span>
-              <span class="chip px-3 py-1.5 rounded-full">CH32V003</span>
-              <span class="chip px-3 py-1.5 rounded-full">Raspberry Pi</span>
-              <span class="chip px-3 py-1.5 rounded-full">Arduino</span>
-            </div>
-          </div>
-          <div class="glass rounded-3xl p-6 reveal">
-            <h3 class="text-lg font-semibold text-white">Protocols</h3>
-            <div class="mt-4 flex flex-wrap gap-2 text-sm">
-              <span class="chip px-3 py-1.5 rounded-full">BLE</span>
-              <span class="chip px-3 py-1.5 rounded-full">ESP-NOW</span>
-              <span class="chip px-3 py-1.5 rounded-full">MQTT</span>
-              <span class="chip px-3 py-1.5 rounded-full">UART</span>
-              <span class="chip px-3 py-1.5 rounded-full">SPI</span>
-              <span class="chip px-3 py-1.5 rounded-full">I2C</span>
-              <span class="chip px-3 py-1.5 rounded-full">Wi-Fi</span>
-              <span class="chip px-3 py-1.5 rounded-full">TCP/IP</span>
-            </div>
-          </div>
-          <div class="glass rounded-3xl p-6 reveal">
-            <h3 class="text-lg font-semibold text-white">Tools</h3>
-            <div class="mt-4 flex flex-wrap gap-2 text-sm">
-              <span class="chip px-3 py-1.5 rounded-full">ESP-IDF</span>
-              <span class="chip px-3 py-1.5 rounded-full">RTOS</span>
-              <span class="chip px-3 py-1.5 rounded-full">KiCad</span>
-              <span class="chip px-3 py-1.5 rounded-full">Segger Embedded Studio</span>
-              <span class="chip px-3 py-1.5 rounded-full">JTAG / SWD</span>
-              <span class="chip px-3 py-1.5 rounded-full">Logic Analyzer</span>
-              <span class="chip px-3 py-1.5 rounded-full">Oscilloscope</span>
-            </div>
-          </div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="glass rounded-3xl p-6 reveal">
+        <h3 class="text-lg font-semibold text-white">Languages</h3>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="chip px-3 py-1.5 rounded-full">C</span>
+          <span class="chip px-3 py-1.5 rounded-full">C++</span>
+          <span class="chip px-3 py-1.5 rounded-full">Embedded C</span>
+          <span class="chip px-3 py-1.5 rounded-full">Python</span>
+          <span class="chip px-3 py-1.5 rounded-full">MATLAB</span>
         </div>
+      </div>
 
-        <div class="mt-6 glass rounded-3xl p-6 reveal">
-          <div class="grid md:grid-cols-2 gap-4 text-muted leading-7">
-            <div>
-              <h3 class="text-white font-semibold mb-3">Fundamentals presentation</h3>
-              <p>Strong on state machines, timing-sensitive flows, peripheral integration, power-aware design, interrupt handling, DMA paths, low-power modes, and debugging at the hardware / firmware boundary.</p>
+      <div class="glass rounded-3xl p-6 reveal">
+        <h3 class="text-lg font-semibold text-white">Platforms</h3>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="chip px-3 py-1.5 rounded-full">ESP32</span>
+          <span class="chip px-3 py-1.5 rounded-full">ESP32-S3</span>
+          <span class="chip px-3 py-1.5 rounded-full">nRF52</span>
+          <span class="chip px-3 py-1.5 rounded-full">CH32V003</span>
+          <span class="chip px-3 py-1.5 rounded-full">Raspberry Pi</span>
+          <span class="chip px-3 py-1.5 rounded-full">Arduino</span>
+        </div>
+      </div>
+
+      <div class="glass rounded-3xl p-6 reveal">
+        <h3 class="text-lg font-semibold text-white">Protocols</h3>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="chip px-3 py-1.5 rounded-full">BLE</span>
+          <span class="chip px-3 py-1.5 rounded-full">ESP-NOW</span>
+          <span class="chip px-3 py-1.5 rounded-full">MQTT</span>
+          <span class="chip px-3 py-1.5 rounded-full">UART</span>
+          <span class="chip px-3 py-1.5 rounded-full">SPI</span>
+          <span class="chip px-3 py-1.5 rounded-full">I2C</span>
+          <span class="chip px-3 py-1.5 rounded-full">Wi-Fi</span>
+          <span class="chip px-3 py-1.5 rounded-full">TCP/IP</span>
+        </div>
+      </div>
+
+      <div class="glass rounded-3xl p-6 reveal">
+        <h3 class="text-lg font-semibold text-white">Tools</h3>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="chip px-3 py-1.5 rounded-full">ESP-IDF</span>
+          <span class="chip px-3 py-1.5 rounded-full">RTOS</span>
+          <span class="chip px-3 py-1.5 rounded-full">KiCad</span>
+          <span class="chip px-3 py-1.5 rounded-full">Segger Embedded Studio</span>
+          <span class="chip px-3 py-1.5 rounded-full">Logic Analyzer</span>
+          <span class="chip px-3 py-1.5 rounded-full">JTAG / SWD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 grid lg:grid-cols-2 gap-6">
+      <div class="glass rounded-3xl p-6 sm:p-7 reveal">
+        <h3 class="text-xl font-semibold text-white">Fundamentals presentation</h3>
+        <p class="mt-3 text-muted leading-7">
+          BLE stack internals, DMA and interrupt-heavy firmware, power optimization, state machines, embedded architecture ownership, low-level debugging, memory and timing awareness, and production-minded validation.
+        </p>
+        <div class="mt-5 grid sm:grid-cols-2 gap-3 text-sm font-mono">
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">BLE stack internals + GATT / GAP awareness</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">DMA / interrupt-driven design</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">Low-power and power-budget optimization</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">Firmware ownership from bring-up to deployment</div>
+        </div>
+      </div>
+
+      <div class="glass rounded-3xl p-6 sm:p-7 reveal">
+        <h3 class="text-xl font-semibold text-white">Specialization clarity</h3>
+        <p class="mt-3 text-muted leading-7">
+          I specialize in EV and LEV systems, battery swapping infrastructure, wireless motor control, connected embedded products, edge AI deployment, telemetry, and real-world hardware/software integration.
+        </p>
+        <div class="mt-5 grid sm:grid-cols-2 gap-3 text-sm font-mono">
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">LEV conversion + e-bike control systems</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">Battery swap kiosk architecture</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">Edge AI on Raspberry Pi / accelerator</div>
+          <div class="rounded-xl border border-white/8 bg-white/3 p-3">Telemetry, sensors, and connected devices</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10">
+      <div class="section-kicker mb-3">Terminal</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white">Interactive console</h2>
+      <p class="text-muted mt-3 max-w-3xl">A small command-driven shell for exploring the portfolio. Type commands or use the shortcuts below.</p>
+    </div>
+
+    <div class="terminal rounded-3xl overflow-hidden reveal">
+      <div class="px-5 py-4 border-b border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
+        <div class="flex items-center gap-2 text-muted font-mono">
+          <span class="w-3 h-3 rounded-full bg-red-400"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+          <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          <span>embedded_shell</span>
+        </div>
+        <div class="text-xs text-muted font-mono">commands: help · experience · projects · kiosk · lev · ble · fundamentals · stack · contact</div>
+      </div>
+
+      <div class="p-5 sm:p-7 space-y-5">
+        <div class="grid lg:grid-cols-12 gap-4">
+          <div class="lg:col-span-8">
+            <div id="terminal-output" class="space-y-2 text-sm sm:text-base font-mono leading-7 text-[#d7e0f2] min-h-[240px]"></div>
+
+            <div class="mt-4 flex items-center gap-3 rounded-2xl border border-white/8 bg-[#07101b] px-4 py-3">
+              <span class="font-mono text-accent whitespace-nowrap">chinmay@embedded:~$</span>
+              <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
+                     class="w-full bg-transparent outline-none text-white placeholder:text-muted font-mono text-sm sm:text-base"
+                     placeholder="type a command and press Enter" />
+              <button id="terminal-run" class="px-4 py-2 rounded-xl bg-white text-bg font-semibold text-sm hover:opacity-90 transition">Run</button>
             </div>
-            <div>
-              <h3 class="text-white font-semibold mb-3">Specialization clarity</h3>
-              <p>Embedded firmware for mobility and connected hardware: LEV systems, battery infrastructure, BLE-based device control, edge AI, telemetry, and field-ready electronic systems.</p>
+          </div>
+
+          <div class="lg:col-span-4 space-y-4">
+            <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+              <div class="text-xs text-muted font-mono uppercase tracking-[0.2em]">Session status</div>
+              <div class="mt-3 space-y-2 text-sm text-white">
+                <div class="flex items-center justify-between"><span>Shell</span><span class="text-accent">online</span></div>
+                <div class="flex items-center justify-between"><span>Output buffer</span><span class="text-accent2">ready</span></div>
+                <div class="flex items-center justify-between"><span>Autocompletion</span><span class="text-white/80">enabled</span></div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-white/8 bg-white/3 p-4">
+              <div class="text-xs text-muted font-mono uppercase tracking-[0.2em] mb-3">Quick commands</div>
+              <div class="grid grid-cols-2 gap-2">
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="help">help</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="lev">lev</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="kiosk">kiosk</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="ble">ble</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="fundamentals">fundamentals</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="stack">stack</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="experience">experience</button>
+                <button class="terminal-btn px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white" data-command="clear">clear</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="py-20 lg:py-28 bg-white/[0.02] border-y border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="reveal mb-10">
-          <div class="section-kicker mb-3">Terminal</div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white">Interactive console</h2>
+<section id="contact" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass rounded-3xl p-8 sm:p-10 reveal">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <div class="section-kicker mb-3">Contact</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Open to embedded firmware and systems roles.</h2>
+          <p class="mt-4 text-muted max-w-2xl leading-8">
+            For firmware, EV systems, BLE, edge AI, IoT, or hardware product roles, reach out directly. I am especially interested in work involving real devices, real constraints, and measurable reliability.
+          </p>
         </div>
-
-        <div class="terminal rounded-3xl overflow-hidden reveal">
-          <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between text-sm">
-            <div class="flex items-center gap-2 text-muted font-mono">
-              <span class="w-3 h-3 rounded-full bg-red-400"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-              <span class="w-3 h-3 rounded-full bg-green-400"></span>
-              <span>embedded_shell</span>
-            </div>
-            <div class="text-xs text-muted font-mono">type help</div>
-          </div>
-
-          <div class="p-5 sm:p-7 space-y-5">
-            <div id="terminal-output" class="space-y-2 text-sm sm:text-base font-mono leading-7 text-[#d7e0f2]"></div>
-
-            <div class="flex flex-wrap gap-2">
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="help">help</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="experience">experience</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="projects">projects</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="kiosk">kiosk</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="skills">skills</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="contact">contact</button>
-              <button class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white hover:border-white/20 hover:bg-white/7 transition" data-command="clear">clear</button>
-            </div>
-          </div>
+        <div class="lg:col-span-4 flex lg:justify-end gap-3 flex-wrap">
+          <a href="mailto:chinmaymulgund3559@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-bg font-semibold hover:opacity-90 transition">
+            <i class="fa-solid fa-envelope"></i>
+            Email me
+          </a>
+          <a href="https://github.com/Chinmay-Mulgund" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
+            <i class="fa-brands fa-github"></i>
+            GitHub
+          </a>
+          <a href="./resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
+            <i class="fa-solid fa-file-lines"></i>
+            Resume
+          </a>
         </div>
       </div>
-    </section>
-
-    <section id="contact" class="py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass rounded-3xl p-8 sm:p-10 reveal">
-          <div class="grid lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8">
-              <div class="section-kicker mb-3">Contact</div>
-              <h2 class="text-3xl sm:text-4xl font-bold text-white">Open to embedded firmware and systems roles.</h2>
-              <p class="mt-4 text-muted max-w-2xl leading-8">For firmware, EV systems, edge AI, IoT, BLE, or hardware product roles, reach out directly. I am especially interested in work involving real devices, real constraints, and measurable reliability.</p>
-            </div>
-            <div class="lg:col-span-4 flex lg:justify-end gap-3 flex-wrap">
-              <a href="mailto:chinmaymulgund3559@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-bg font-semibold hover:opacity-90 transition">
-                <i class="fa-solid fa-envelope"></i>
-                Email me
-              </a>
-              <a href="https://github.com/Chinmay-Mulgund" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
-                <i class="fa-brands fa-github"></i>
-                GitHub
-              </a>
-              <a href="./resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-white/20 transition">
-                <i class="fa-solid fa-file-lines"></i>
-                Resume
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-white/5 py-8">
+    </div>
+  </div>
+</section>
+<footer class="border-t border-white/5 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-muted">
       <p>Built by Chinmay Mulgund · 2026</p>
       <p class="font-mono">Firmware, hardware, telemetry, deployment.</p>
     </div>
   </footer>
 
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => io.observe(el));
-
-    const mobileMenu = document.getElementById('mobileMenu');
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
     });
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
 
-    const lines = [
-      '[OK] firmware stack initialized',
-      '[OK] embedded targets online',
-      '[OK] power-aware control paths ready',
-      '[OK] telemetry and connectivity modules active',
-      '[OK] field deployment support enabled'
-    ];
-    const typewriter = document.getElementById('typewriter');
-    let idx = 0;
-    function render() {
-      typewriter.innerHTML = '';
-      lines.forEach((line, i) => {
-        const div = document.createElement('div');
-        div.textContent = line;
-        div.className = i === idx ? 'text-accent' : 'text-muted';
-        typewriter.appendChild(div);
+  const sections = [...document.querySelectorAll('section[id]')];
+  const navLinks = [...document.querySelectorAll('.navlink')];
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
       });
-      idx = (idx + 1) % lines.length;
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.05 });
+  sections.forEach(sec => sectionObserver.observe(sec));
+
+  const terminalOutput = document.getElementById('terminal-output');
+  const terminalInput = document.getElementById('terminal-input');
+  const terminalRun = document.getElementById('terminal-run');
+  const terminalButtons = [...document.querySelectorAll('.terminal-btn')];
+
+  const commandHelp = `available commands:
+help, about, experience, projects, kiosk, lev, ble, fundamentals, stack, contact, clear, status, resume`;
+
+  const commandMap = {
+    help: `Type a command or use the buttons on the right.\n\n${commandHelp}`,
+    about: `Embedded Firmware Engineer building EV systems, battery swapping infrastructure, edge AI devices, and connected products.`,
+    experience: `Dimension Six Technologies | DeepGrid Semi | Paras Telecom | Shaurya Racing`,
+    projects: `Cellular IoT GPS Asset Tracker | AI Bicycle Rear-Collision Alert | Radar Distance Sensing Node`,
+    kiosk: `Battery swapping kiosk:\n- 7x2 layout\n- 14 compartments\n- secure battery handoff\n- backend integration\n- online payment support\n- maintenance-ready workflow`,
+    lev: `HOOK is a cycle conversion kit that turns a regular bicycle into an electric bicycle in seconds.\nHOOK DAILY uses wired throttle control.\nHOOK UNIQ uses ESP-NOW wireless throttle control and supports advanced use cases such as resistance training, gamified riding, and smart-trainer workflows.`,
+    ble: `BLE depth signals:\n- stack internals awareness\n- GAP / GATT model\n- connection behavior\n- low-power communication\n- production-ready device provisioning`,
+    fundamentals: `Fundamentals:\n- BLE stack internals\n- DMA / interrupt-heavy firmware\n- power optimization\n- embedded architecture ownership\n- RTOS scheduling\n- low-level debugging\n- timing and memory awareness`,
+    stack: `C, C++, Embedded C, Python, MATLAB\nESP32, ESP32-S3, nRF52, CH32V003, Raspberry Pi\nBLE, ESP-NOW, MQTT, UART, SPI, I2C, Wi-Fi, TCP/IP\nESP-IDF, RTOS, KiCad, Segger Embedded Studio, JTAG/SWD`,
+    contact: `email: chinmaymulgund3559@gmail.com\ngithub: github.com/Chinmay-Mulgund`,
+    status: `status:\n- shell: online\n- output: ready\n- history: enabled\n- autocomplete: enabled`,
+    resume: `Open ./resume.pdf from the repo root.`,
+    clear: '__CLEAR__'
+  };
+
+  const commandList = Object.keys(commandMap).filter(k => k !== 'clear');
+  let history = [];
+  let historyIndex = -1;
+
+  function appendLine(content, kind = 'default') {
+    const row = document.createElement('div');
+    row.className = 'whitespace-pre-wrap';
+    const prompt = `<span class="text-accent">chinmay@embedded</span><span class="text-muted">:~$</span> `;
+    if (kind === 'system') {
+      row.innerHTML = `<span class="text-accent2 font-semibold">${content}</span>`;
+    } else if (kind === 'error') {
+      row.innerHTML = `<span class="text-red-300">${content}</span>`;
+    } else {
+      row.innerHTML = prompt + content.replace(/\n/g, '<br>');
     }
-    render();
-    setInterval(render, 1800);
+    terminalOutput.appendChild(row);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
 
-    const terminalOutput = document.getElementById('terminal-output');
-    const commands = {
-      help: 'available commands: help, experience, projects, kiosk, skills, contact, clear',
-      experience: 'Dimension Six Technologies | DeepGrid Semi | Paras Telecom | Shaurya Racing',
-      projects: 'Cellular IoT GPS Asset Tracker | AI Bicycle Rear-Collision Alert | Radar Distance Sensing Node',
-      kiosk: '7x2 battery swapping kiosk | 14 compartments | secure handoff | backend integration | payment support | maintenance pipeline',
-      skills: 'BLE | ESP-NOW | MQTT | RTOS | ESP-IDF | KiCad | JTAG/SWD | DMA | interrupts | power optimization',
-      contact: 'email: chinmaymulgund3559@gmail.com\ngithub: github.com/Chinmay-Mulgund',
-      clear: '__CLEAR__'
-    };
-
-    function printTerminal(text) {
-      const block = document.createElement('div');
-      block.className = 'whitespace-pre-wrap';
-      block.innerHTML = `<span class="text-accent">visitor@chinmay</span><span class="text-muted">:~$</span> ${text.replace(/\n/g, '<br>')}`;
-      terminalOutput.appendChild(block);
+  function runCommand(raw) {
+    const cmd = (raw || '').trim().toLowerCase();
+    if (!cmd) return;
+    if (cmd === 'clear') {
+      terminalOutput.innerHTML = '';
+      appendLine('terminal cleared', 'system');
+      return;
     }
+    const out = commandMap[cmd];
+    if (!out) {
+      appendLine(`command not found: ${cmd}. type help.`, 'error');
+      return;
+    }
+    appendLine(cmd);
+    if (out === '__CLEAR__') {
+      terminalOutput.innerHTML = '';
+      return;
+    }
+    appendLine(out, 'system');
+  }
 
-    function runCommand(cmd) {
+  function submitFromInput() {
+    const value = terminalInput.value;
+    if (!value.trim()) return;
+    history.push(value);
+    historyIndex = history.length;
+    runCommand(value);
+    terminalInput.value = '';
+  }
+
+  terminalRun.addEventListener('click', submitFromInput);
+
+  terminalInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      submitFromInput();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!history.length) return;
+      historyIndex = Math.max(0, historyIndex - 1);
+      terminalInput.value = history[historyIndex] || '';
+      setTimeout(() => terminalInput.setSelectionRange(terminalInput.value.length, terminalInput.value.length), 0);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!history.length) return;
+      historyIndex = Math.min(history.length, historyIndex + 1);
+      terminalInput.value = history[historyIndex] || '';
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const match = commandList.find(c => c.startsWith(terminalInput.value.toLowerCase().trim()));
+      if (match) terminalInput.value = match;
+    } else if (e.ctrlKey && e.key.toLowerCase() === 'l') {
+      e.preventDefault();
+      terminalOutput.innerHTML = '';
+    }
+  });
+
+  terminalButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cmd = btn.dataset.command;
       if (cmd === 'clear') {
         terminalOutput.innerHTML = '';
+        appendLine('terminal cleared', 'system');
+        terminalInput.focus();
         return;
       }
-      const out = commands[cmd] || 'command not found. type help.';
-      if (out === '__CLEAR__') {
-        terminalOutput.innerHTML = '';
-        return;
-      }
-      printTerminal(out);
-    }
-
-    document.querySelectorAll('[data-command]').forEach(btn => {
-      btn.addEventListener('click', () => runCommand(btn.dataset.command));
+      terminalInput.value = cmd;
+      submitFromInput();
+      terminalInput.focus();
     });
+  });
 
-    printTerminal('help');
+  document.addEventListener('click', (e) => {
+    const terminal = document.querySelector('.terminal');
+    if (terminal && terminal.contains(e.target)) {
+      terminalInput.focus();
+    }
+  });
 
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.navlink')];
+  appendLine('portfolio shell initialized', 'system');
+  appendLine('type help, or click a command to inspect the work', 'system');
+</script>
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.classList.add('active');
-          }
-        });
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.05 });
-
-    sections.forEach(sec => sectionObserver.observe(sec));
-  </script>
 </body>
 </html>
