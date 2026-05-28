@@ -1,51 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinmay Mulgund | Firmware Engineer</title>
+    <!-- Tailwind CSS for Modern UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for text, Fira Code for technical terms -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+                    colors: { terminal: '#10b981', darkbg: '#0f172a', cardbg: '#1e293b' }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
-        h1 { color: #2c3e50; }
-        h2 { border-bottom: 2px solid #3498db; padding-bottom: 5px; color: #2980b9; }
-        .contact-info { margin-bottom: 20px; }
-        .project { margin-bottom: 20px; }
+        body { background-color: #0f172a; color: #cbd5e1; }
+        .tech-tag { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .nav-blur { backdrop-filter: blur(10px); background-color: rgba(15, 23, 42, 0.8); }
+        /* Simple typing cursor animation */
+        .cursor::after { content: '|'; animation: blink 1s step-start infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
-<body>
+<body class="antialiased font-sans selection:bg-terminal selection:text-darkbg">
 
-    <h1>Chinmay Mulgund</h1>
-    <div class="contact-info">
-        <p><strong>Embedded Firmware Engineer</strong></p>
-        <p>Mumbai, Maharashtra | <a href="mailto:chinmaymulgund3559@gmail.com">Email Me</a> | <a href="https://github.com/Chinmay-Mulgund">GitHub</a></p>
-    </div>
+    <!-- Sticky Navbar -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <span class="text-xl font-mono text-white font-bold">&gt; CM_<span class="text-terminal">SYS</span></span>
+            <div class="space-x-6 text-sm font-mono hidden md:block">
+                <a href="#about" class="hover:text-terminal transition">/about</a>
+                <a href="#experience" class="hover:text-terminal transition">/experience</a>
+                <a href="#projects" class="hover:text-terminal transition">/projects</a>
+                <a href="#skills" class="hover:text-terminal transition">/skills</a>
+            </div>
+            <a href="mailto:chinmaymulgund3559@gmail.com" class="px-4 py-2 border border-terminal text-terminal rounded hover:bg-terminal hover:text-darkbg transition font-mono text-sm">
+                connect()
+            </a> <!--[cite: 2] -->
+        </div>
+    </nav>
 
-    <h2>About Me</h2>
-    <p>I build robust firmware, low-latency IoT architectures, and edge AI systems. I specialize in C/C++, ESP32, nRF52, and developing hardware solutions from the ground up.</p>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6" data-aos="fade-right">
+                <p class="text-terminal font-mono text-lg">uint8_t status = "Available";</p>
+                <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Chinmay Mulgund.</h1>
+                <h2 class="text-3xl md:text-4xl text-gray-400 font-semibold cursor">I engineer firmware for the physical world</h2>
+                <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
+                    Embedded Firmware Engineer bridging the gap between bare-metal hardware and the cloud. Specializing in IoT architectures, Light Electric Vehicle (LEV) systems, and real-time edge AI processing. <!--[cite: 2] -->
+                </p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="https://github.com/Chinmay-Mulgund" target="_blank" class="text-2xl hover:text-terminal transition"><i class="fab fa-github"></i></a> <!--[cite: 2] -->
+                    <a href="#" target="_blank" class="text-2xl hover:text-terminal transition"><i class="fab fa-linkedin"></i></a> <!-- Replace # with actual LinkedIn URL -->
+                    <a href="mailto:chinmaymulgund3559@gmail.com" class="text-2xl hover:text-terminal transition"><i class="fas fa-envelope"></i></a> <!--[cite: 2] -->
+                </div>
+            </div>
+            <!-- Photo Profile -->
+            <div class="flex-1 flex justify-center" data-aos="fade-left">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cardbg overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+                    <!-- Replace the src below with your image URL -->
+                    <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Featured Projects</h2>
-    
-    <div class="project">
-        <h3>1. HOOK UNIQ & HOOK DAILY</h3>
-        <p>Designed and implemented firmware and PCB layouts for e-bike conversion solutions. Integrated VESC with throttle-based control and developed custom wireless throttles using ESP-NOW.</p>
-    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-cardbg/30">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">01.</span> Experience</h2>
+            
+            <div class="space-y-12">
+                <!-- Job 1 -->
+                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-terminal rounded-full -left-[9px] top-1"></div>
+                    <h3 class="text-xl font-bold text-white">Embedded Firmware Engineer <span class="text-terminal">@ Dimension Six Technologies</span></h3> <!--[cite: 2] -->
+                    <p class="text-sm font-mono text-gray-500 mb-4">Jun 2025 - Present | Mumbai</p> <!--[cite: 2] -->
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>Designed firmware and PCB layouts for HOOK UNIQ, an e-bike conversion system utilizing ESP-NOW for wireless throttle and drivetrain switching.</li> <!--[cite: 2] -->
+                        <li>Developed HOOK DAILY for gig workers, integrating VESC with throttle-based control.</li> <!--[cite: 2] -->
+                        <li>Architected a 16-compartment (8x2) smart battery charging & swap kiosk with custom docking hardware, secure device handoff, and an Elecrow 7" HMI master display integrating robust battery detection routines.</li> <!--[cite: 2] -->
+                        <li>Implemented cadence-sensing firmware on ISC-nRF52832-A with a BMA400 accelerometer for real-time pedal RPM computation.</li> <!--[cite: 2] -->
+                    </ul>
+                </div>
 
-    <div class="project">
-        <h3>2. 16-Compartment Smart Charging Kiosk</h3>
-        <p>Built a kiosk-based charging and battery swap system featuring docking hardware, secure device handoff, and an integrated HMI master display.</p>
-    </div>
+                <!-- Job 2 -->
+                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-1"></div>
+                    <h3 class="text-xl font-bold text-white">Firmware Engineer Intern <span class="text-terminal">@ DeepGrid Semi</span></h3> <!--[cite: 2] -->
+                    <p class="text-sm font-mono text-gray-500 mb-4">Sep 2024 - Jun 2025 | Hyderabad</p> <!--[cite: 2] -->
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>Integrated ADAS L0 system (object/lane detection) for edge deployment on Raspberry Pi using the Hailos Accelerator.</li> <!--[cite: 2] -->
+                        <li>Controlled a prototype car's front axle via ESP32 socket communication to CARLA simulation.</li> <!--[cite: 2] -->
+                        <li>Deployed BitNetMCU on CH32V003 and ESP32-S3 for MNIST data prediction.</li> <!--[cite: 2] -->
+                    </ul>
+                </div>
 
-    <div class="project">
-        <h3>3. Cellular IoT GPS Asset Tracker</h3>
-        <p>Developed a real-time tracking architecture utilizing an ESP32 and a SIM A7672S 4G LTE module for autonomous telemetry data transmission over cellular networks.</p>
-    </div>
+                <!-- Job 3 -->
+                <div class="relative border-l border-gray-700 pl-8" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-1"></div>
+                    <h3 class="text-xl font-bold text-white">Electronics & Programming Engineer <span class="text-terminal">@ Shaurya Racing</span></h3> <!--[cite: 2] -->
+                    <p class="text-sm font-mono text-gray-500 mb-4">Oct 2022 - Jan 2025 | VIT Chennai</p> <!--[cite: 2] -->
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>Delivered a Gear Position Indicator and Driver Information Display, improving driver awareness during Formula Bharat 2024.</li> <!--[cite: 2] -->
+                        <li>Reduced telemetry data latency by 15% using MQTT protocols.</li> <!--[cite: 2] -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Experience</h2>
-    <ul>
-        <li><strong>Embedded Firmware Engineer</strong> at Dimension Six Technologies</li>
-        <li><strong>Firmware Engineer Intern</strong> at DeepGrid Semi</li>
-        <li><strong>Embedded Intern</strong> at Paras Telecom</li>
-    </ul>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">02.</span> Hardware & Architecture</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-cardbg p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-terminal group" data-aos="zoom-in">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="fas fa-microchip text-3xl text-terminal"></i>
+                        <a href="#" class="text-gray-400 group-hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Cellular IoT Asset Tracker</h3> <!--[cite: 2] -->
+                    <p class="text-gray-400 mb-6 text-sm">Engineered a robust real-time tracking architecture using an ESP32 and SIM A7672S 4G LTE/GNSS board for autonomous telemetry parsing over cellular networks.</p> <!--[cite: 2] -->
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="tech-tag px-3 py-1 rounded">ESP32</span>
+                        <span class="tech-tag px-3 py-1 rounded">A7672S 4G LTE</span>
+                        <span class="tech-tag px-3 py-1 rounded">C/C++</span>
+                    </div>
+                </div>
 
+                <!-- Project 2 -->
+                <div class="bg-cardbg p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-terminal group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="fas fa-bicycle text-3xl text-terminal"></i>
+                        <a href="#" class="text-gray-400 group-hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">AI Bicycle Rear-Collision Alert</h3> <!--[cite: 2] -->
+                    <p class="text-gray-400 mb-6 text-sm">Computer vision warning system for cyclists. Utilized Raspberry Pi and Google Coral Accelerator for real-time edge AI vehicle detection and hazard notification.</p> <!--[cite: 2] -->
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="tech-tag px-3 py-1 rounded">Raspberry Pi</span>
+                        <span class="tech-tag px-3 py-1 rounded">Google Coral</span>
+                        <span class="tech-tag px-3 py-1 rounded">OpenCV</span>
+                        <span class="tech-tag px-3 py-1 rounded">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-cardbg/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-12 font-mono" data-aos="fade-up"><span class="text-terminal">03.</span> Tech Stack</h2>
+            
+            <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
+                <!-- Languages & Core -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">C / Embedded C (Mastering)</span>
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">C++</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">Python</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">MATLAB</span> <!--[cite: 2] -->
+                
+                <!-- Microcontrollers -->
+                <span class="px-4 py-2 tech-tag font-mono text-sm">ESP32 / ESP32-S3</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 tech-tag font-mono text-sm">nRF52 Series</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 tech-tag font-mono text-sm">CH32V003</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 tech-tag font-mono text-sm">ARM Architecture</span>
+                <span class="px-4 py-2 tech-tag font-mono text-sm">Raspberry Pi</span> <!--[cite: 2] -->
+                
+                <!-- Frameworks & Protocols -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">RTOS</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">ESP-IDF</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">ESP-NOW</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">MQTT / TCP/IP</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">I2C / SPI / UART</span> <!--[cite: 2] -->
+                <span class="px-4 py-2 bg-gray-800 text-white rounded font-mono text-sm border border-gray-700">KiCad</span> <!--[cite: 2] -->
+            </div>
+            
+            <!-- Education Note -->
+            <p class="mt-12 text-gray-500 font-mono text-sm" data-aos="fade-up">
+                <i class="fas fa-graduation-cap mr-2"></i> B.Tech Electronics and Communication Engineering | Vellore Institute of Technology, Chennai (2021-2025) <!--[cite: 2] -->
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-gray-800">
+        <p class="text-gray-500 font-mono text-sm">Built by Chinmay Mulgund &copy; 2026. Designed for the physical world.</p>
+    </footer>
+
+    <!-- Initialize AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+    </script>
 </body>
 </html>
