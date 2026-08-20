@@ -270,8 +270,7 @@
                 </div>
               </div>
 
-              <!-- Profile Image (FIXED VISIBILITY) -->
-              <!-- Using aspect-square to ensure proper framing without cutting off the face -->
+              <!-- Profile Image -->
               <div class="relative w-full aspect-square md:aspect-[4/5] bg-slate-800">
                 <img src="https://i.postimg.cc/FzW6nYwv/Chinmay-Photo-jpg.jpg" alt="Chinmay Mulgund" class="w-full h-full object-cover object-center" />
                 <div class="absolute inset-0 bg-gradient-to-t from-panel via-panel/20 to-transparent"></div>
@@ -292,7 +291,7 @@
       </div>
     </section>
 
-    <!-- Experience Section (Emphasizing Hardware/Firmware Split) -->
+    <!-- Experience Section -->
     <section id="experience" class="py-20 mt-12 relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="reveal mb-12">
@@ -401,7 +400,7 @@
       </div>
     </section>
 
-    <!-- Flagship Systems & Projects -->
+    <!-- Flagship Systems -->
     <section id="systems" class="py-20 relative z-10 bg-slate-900/40 border-y border-white/5 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="reveal mb-12">
@@ -468,25 +467,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Smaller Projects Grid -->
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <div class="glass p-5 rounded-2xl reveal hover:bg-white/[0.08] transition-colors cursor-default">
-            <h4 class="text-white font-bold text-sm mb-2"><i class="fa-solid fa-satellite-dish text-cyan-400 mr-2"></i> Cellular IoT Tracker</h4>
-            <p class="text-xs text-slate-400 mb-4 leading-relaxed">ESP32 + A7672S 4G LTE/GNSS architecture for autonomous real-time asset telemetry parsing and transmission.</p>
-            <div class="flex gap-2 font-mono text-[10px] text-slate-300"><span class="bg-white/10 px-2 py-1 rounded">C/C++</span><span class="bg-white/10 px-2 py-1 rounded">LTE/GNSS</span></div>
-          </div>
-          <div class="glass p-5 rounded-2xl reveal hover:bg-white/[0.08] transition-colors cursor-default">
-            <h4 class="text-white font-bold text-sm mb-2"><i class="fa-solid fa-wave-square text-amber-400 mr-2"></i> Radar Node PCB</h4>
-            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Designed custom PCB pairing an nRF52 with an Acconeer A121 Pulsed Coherent Radar Sensor for mm-level sensing.</p>
-            <div class="flex gap-2 font-mono text-[10px] text-slate-300"><span class="bg-white/10 px-2 py-1 rounded">KiCad</span><span class="bg-white/10 px-2 py-1 rounded">nRF52</span></div>
-          </div>
-          <div class="glass p-5 rounded-2xl reveal hover:bg-white/[0.08] transition-colors cursor-default">
-            <h4 class="text-white font-bold text-sm mb-2"><i class="fa-solid fa-car-burst text-emerald-400 mr-2"></i> Edge AI Collision Alert</h4>
-            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Computer vision alert system for cyclists utilizing Raspberry Pi and Google Coral TPU for rapid edge hazard detection.</p>
-            <div class="flex gap-2 font-mono text-[10px] text-slate-300"><span class="bg-white/10 px-2 py-1 rounded">Python</span><span class="bg-white/10 px-2 py-1 rounded">OpenCV</span></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -539,13 +519,13 @@
       </div>
     </section>
 
-    <!-- Terminal/Interactive Section with AI -->
+    <!-- Static Terminal Section -->
     <section class="py-20 bg-slate-900/50 border-y border-white/5 relative z-10 shadow-[inset_0_0_80px_rgba(0,0,0,0.6)]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="reveal mb-8">
           <div class="section-kicker mb-3">Interactive</div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white">AI System Console</h2>
-          <p class="text-muted text-sm mt-2">Powered by Gemini AI. Ask questions about my experience, skills, or projects.</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white">System Console</h2>
+          <p class="text-muted text-sm mt-2">Explore my experience and projects using command-line shortcuts.</p>
         </div>
 
         <div class="glass rounded-2xl overflow-hidden reveal border-cyan-500/30 shadow-[0_0_40px_rgba(6,182,212,0.15)]">
@@ -562,9 +542,8 @@
           <!-- Terminal Body -->
           <div class="p-4 sm:p-6 bg-[#0d1117] h-[350px] flex flex-col font-mono text-sm">
             <div id="terminal-output" class="flex-1 overflow-y-auto space-y-2 text-slate-300 pr-2 pb-4">
-              <div class="text-emerald-400 font-bold">System initialized. Type <span class="text-cyan-400">help</span> for a list of basic commands.</div>
-              <div class="text-cyan-400 mt-2"><i class="fa-solid fa-sparkles"></i> Gemini AI Assistant Online. (Free Tier Active)</div>
-              <div class="text-slate-500 mb-4">Click the quick commands below or type any custom question directly...</div>
+              <div class="text-emerald-400 font-bold">System initialized.</div>
+              <div class="text-slate-500 mb-4">Click the quick commands below or type them directly...</div>
             </div>
 
             <!-- Terminal Input -->
@@ -573,7 +552,7 @@
               <span class="text-cyan-500 font-bold">~</span>
               <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
                      class="flex-1 bg-transparent outline-none text-white placeholder-slate-600 ml-2"
-                     placeholder="enter command or ask AI..." />
+                     placeholder="enter command (e.g., 'help')..." />
             </div>
           </div>
           
@@ -582,7 +561,7 @@
              <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 border border-white/10 transition-colors" data-command="help">help</button>
              <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 border border-white/10 transition-colors" data-command="pcb">pcb</button>
              <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 border border-white/10 transition-colors" data-command="firmware">firmware</button>
-             <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 border border-white/10 transition-colors flex items-center gap-1.5 text-cyan-300 border-cyan-500/30" data-command="What specific 4-layer PCB work did Chinmay do?"><i class="fa-solid fa-sparkles"></i> ask AI</button>
+             <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 border border-white/10 transition-colors" data-command="contact">contact</button>
              <button class="terminal-btn text-xs font-mono px-3 py-1.5 rounded bg-white/5 hover:bg-red-500/20 hover:text-red-400 border border-white/10 transition-colors ml-auto" data-command="clear">clear</button>
           </div>
         </div>
@@ -699,73 +678,24 @@
     }
     setTimeout(typeBootLine, 800);
 
-    // AI Terminal Logic
+    // Static Terminal Logic
     const termOut = document.getElementById('terminal-output');
     const termIn = document.getElementById('terminal-input');
     const termBtns = document.querySelectorAll('.terminal-btn');
 
-    // Basic static commands for fast response
     const commands = {
-      help: "Available static commands:\n  pcb        - Hardware & Schematic design experience\n  firmware   - Bare-metal coding & RTOS\n  contact    - Get in touch\n  clear      - Clear terminal\n\n  [Type any question] - Ask the Gemini AI assistant (e.g., 'What is Chinmay's experience with ESP32?')",
-      pcb: "HARDWARE DESIGN (KiCad):\n- Engineered custom 4-layer PCB for HOOK UNIQ controller (ESP32 to VESC via UART, 12V latches, 5V fob charging).\n- Designed 2-layer PCB for HOOK UNIQ wireless key fob (compact footprint, battery efficient).\n- Radar Node: Designed PCB pairing nRF52 with Acconeer A121 Pulsed Coherent Radar.",
+      help: "Available static commands:\n  pcb        - Hardware & Schematic design experience\n  firmware   - Bare-metal coding & RTOS\n  contact    - Get in touch\n  clear      - Clear terminal output",
+      pcb: "HARDWARE DESIGN (KiCad):\n- Engineered custom 4-layer PCB for HOOK UNIQ controller (ESP32 interfacing with VESC via UART, 12V mechanical latches, and 5V fob charging).\n- Designed companion 2-layer PCB for the wireless key fob (ultra-compact, battery efficient).\n- Radar Node: Designed PCB pairing nRF52 with Acconeer A121 Pulsed Coherent Radar.",
       firmware: "FIRMWARE ARCHITECTURE:\n- Bare-metal C/C++, ESP-IDF, FreeRTOS, Segger Embedded Studio.\n- ESP-NOW wireless throttle with ultra-low latency linking the friction drive BLDC outrunner motor.\n- BLE stack internals, DMA/interrupt-driven design, and deep-sleep power budgeting.\n- Hardware-in-the-loop testing and simulation.",
       contact: "Email: chinmaymulgund3559@gmail.com\nGitHub: github.com/Chinmay-Mulgund",
     };
 
-    const systemInstruction = `You are the AI assistant built into the portfolio terminal of Chinmay Mulgund.
-    Chinmay is a Full-Stack Embedded Firmware & Hardware Engineer from Mumbai.
-    Key skills: C/C++, ESP32, nRF52, Custom PCB Design (4-layer & 2-layer boards using KiCad), BLE, FreeRTOS, Edge AI.
-    Experience: 
-    - Dimension Six Technologies (Built HOOK UNIQ EV conversion stack: 4-layer controller PCB integrating onboard ESP32 to VESC via UART, 12V latches, and 5V fob charging; 2-layer key fob PCB; and bare-metal ESP-NOW firmware linking the friction drive BLDC outrunner motor. Also built a 14-slot Battery Swapping Kiosk).
-    - DeepGrid Semi (Edge AI ADAS L0 on Raspberry Pi, nRF52 Radar sensing via Acconeer A121).
-    Keep your answers highly professional, concise (1-3 sentences max), and format them as if printed in a Linux terminal. Do not use markdown headers, just plain text. Never break character.`;
-
-    async function askGemini(query) {
-        // IMPORTANT: For GitHub Pages deployment, you must generate a FREE API key from 
-        // Google AI Studio (https://aistudio.google.com/app/apikey) and paste it inside the quotes below.
-        // Currently, it is empty because this Canvas environment auto-injects it for testing.
-        const apiKey = "AQ.Ab8RN6I8kqsOgT1E_bU9BOLapfbEiwZoHWMcyzOQm8KrQpCG1w"; 
-        
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-        const payload = {
-            contents: [{ parts: [{ text: query }] }],
-            systemInstruction: { parts: [{ text: systemInstruction }] }
-        };
-
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const result = await response.json();
-            
-            // Handle cases where the API key is missing or invalid (e.g., on GitHub Pages without a key)
-            if (result.error) {
-                console.error("API Error:", result.error);
-                return "Error: AI module requires an active API key. Please use static commands like 'help', 'pcb', or 'firmware' for now.";
-            }
-
-            if (result.candidates && result.candidates[0].content) {
-                return result.candidates[0].content.parts[0].text;
-            }
-            return "Error: AI module offline or invalid response.";
-        } catch (e) {
-            console.error(e);
-            return "Error: Unable to connect to AI module. Make sure your API key is configured if hosting outside this environment.";
-        }
-    }
-
-    function printTerminal(text, isInput = false, id = null, isHtml = false) {
+    function printTerminal(text, isInput = false) {
       const div = document.createElement('div');
       div.className = "whitespace-pre-wrap mt-3";
-      if (id) div.id = id;
 
       if (isInput) {
         div.innerHTML = `<span class="text-emerald-500 font-bold">➜</span> <span class="text-cyan-500 font-bold">~</span> ${text}`;
-      } else if (isHtml) {
-        div.innerHTML = text;
       } else {
         div.innerText = text;
       }
@@ -773,7 +703,7 @@
       termOut.scrollTop = termOut.scrollHeight;
     }
 
-    async function processCommand(cmdRaw) {
+    function processCommand(cmdRaw) {
       const cmd = cmdRaw.trim();
       const cmdLower = cmd.toLowerCase();
       if (!cmd) return;
@@ -788,18 +718,7 @@
       if (commands[cmdLower]) {
         printTerminal(commands[cmdLower]);
       } else {
-        // Fallback to Gemini AI for natural language queries
-        const loadingId = "loading-" + Date.now();
-        printTerminal(`<span class="text-cyan-400 animate-pulse"><i class="fa-solid fa-microchip"></i> processing via Gemini AI...</span>`, false, loadingId, true);
-        
-        const answer = await askGemini(cmd);
-        
-        // Remove loading indicator
-        const loadEl = document.getElementById(loadingId);
-        if(loadEl) loadEl.remove();
-        
-        // Print AI response
-        printTerminal(`<span class="text-cyan-400 font-bold">[AI]</span> ${answer}`, false, null, true);
+        printTerminal(`Command not found: ${cmd}. Type 'help' for available commands.`);
       }
     }
 
